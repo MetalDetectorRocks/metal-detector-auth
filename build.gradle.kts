@@ -1,6 +1,6 @@
 val javaVersion: JavaVersion = JavaVersion.VERSION_11
 val dependencyVersions: List<String> = listOf(
-    "com.nimbusds:nimbus-jose-jwt:9.15.2"
+    "com.nimbusds:nimbus-jose-jwt:9.16-preview.1"
 )
 val dependencyGroupVersions: Map<String, String> = mapOf()
 
