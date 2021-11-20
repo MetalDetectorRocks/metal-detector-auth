@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: Metal Auth Service
+  autoconfigure: # prevents spring from showing default user password in logs on startup
+    exclude: org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration
+
+server:
+  port: 9000
+  error:
+    include-message: always
+    include-binding-errors: never
+    include-exception: false
+  tomcat:
+    accesslog:
+      enabled: true
+  shutdown: graceful
+
+logging:
+  config: classpath:config/logging/logback-spring.xml
+
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: health, info, metrics, prometheus
+
+oauth-clients:
+  metal-detector-user:
+    client-id: ${METAL_DETECTOR_USER_CLIENT_ID}
+    client-secret: ${METAL_DETECTOR_USER_CLIENT_SECRET}
+    scope: "user"
+  metal-detector-admin:
+    client-id: ${METAL_DETECTOR_ADMIN_CLIENT_ID}
+    client-secret: ${METAL_DETECTOR_ADMIN_CLIENT_SECRET}
+    scope: "admin"
+
+security:
+  issuer-uri: "http://localhost:9000"
