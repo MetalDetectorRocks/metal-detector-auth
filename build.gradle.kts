@@ -19,7 +19,6 @@ subprojects {
   project.apply(plugin = "org.jetbrains.kotlin.plugin.spring")
   project.apply(plugin = "org.jetbrains.kotlin.plugin.allopen")
   project.apply(plugin = "io.spring.dependency-management")
-  project.apply(plugin = "jacoco")
 
   repositories {
     mavenCentral()
@@ -56,12 +55,6 @@ subprojects {
     withType<Test> {
       useJUnitPlatform()
       testLogging.showStandardStreams = true
-    }
-    withType<JacocoReport> {
-      reports {
-        xml.required.set(true)
-        html.required.set(false)
-      }
     }
     withType<GroovyCompile> {
       options.encoding = "UTF-8"
