@@ -32,7 +32,7 @@ class AuthorizationServerConfig {
 
   @Bean
   fun jwkSource(): JWKSource<SecurityContext> {
-    val rsaKey = generateRsa()
+    val rsaKey: RSAKey = generateRsa()
     val jwkSet = JWKSet(rsaKey)
     return JWKSource { jwkSelector, _ -> jwkSelector.select(jwkSet) }
   }
