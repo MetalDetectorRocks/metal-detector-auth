@@ -1,5 +1,8 @@
 [versions]
+kotest = "4.6.3"
+kotestSpring = "1.0.1"
 kotlin = "1.6.0"
 springBoot = "2.6.0"
 springSecurity = "5.6.0"
 springSecurityAuthorization = "0.2.0"
+springVersion = "5.3.13"

@@ -1,13 +1,17 @@
 val javaVersion: JavaVersion = JavaVersion.VERSION_17
 val dependencyVersions: List<String> = listOf(
-    "com.nimbusds:nimbus-jose-jwt:9.15.2"
+    "com.nimbusds:nimbus-jose-jwt:9.15.2",
+    "org.objenesis:objenesis:3.2"
 )
-val dependencyGroupVersions: Map<String, String> = mapOf()
+val dependencyGroupVersions: Map<String, String> = mapOf(
+    "io.kotest" to libs.versions.kotest.get()
+)
 
 plugins {
-  kotlin("jvm") version "1.6.0" apply false
-  kotlin("plugin.spring") version "1.6.0" apply false
-  kotlin("plugin.allopen") version "1.6.0" apply false
+  val kotlinVersion = "1.6.0"
+  kotlin("jvm") version kotlinVersion apply false
+  kotlin("plugin.spring") version kotlinVersion apply false
+  kotlin("plugin.allopen") version kotlinVersion apply false
 
   id("org.springframework.boot") version "2.6.0" apply false
   id("io.spring.dependency-management") version "1.0.11.RELEASE" apply false
@@ -54,9 +58,6 @@ subprojects {
     withType<Test> {
       useJUnitPlatform()
       testLogging.showStandardStreams = true
-    }
-    withType<GroovyCompile> {
-      options.encoding = "UTF-8"
     }
   }
 }

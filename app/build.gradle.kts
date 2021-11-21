@@ -27,6 +27,12 @@ dependencies {
 
   developmentOnly("org.springframework.boot:spring-boot-devtools:${libs.versions.springBoot.get()}")
   annotationProcessor("org.springframework.boot:spring-boot-configuration-processor:${libs.versions.springBoot.get()}")
+
+  testImplementation("org.springframework.boot:spring-boot-starter-test:${libs.versions.springBoot.get()}")
+  testImplementation("io.kotest:kotest-framework-engine-jvm:${libs.versions.kotest.get()}")
+  testImplementation("io.kotest:kotest-property-jvm:${libs.versions.kotest.get()}")
+  testImplementation("io.kotest:kotest-runner-junit5-jvm:${libs.versions.kotest.get()}")
+  testImplementation("io.kotest.extensions:kotest-extensions-spring:${libs.versions.kotestSpring.get()}")
 }
 
 description = "app"
