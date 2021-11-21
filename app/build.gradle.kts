@@ -18,6 +18,8 @@ tasks {
 }
 
 dependencies {
+  implementation("org.jetbrains.kotlin:kotlin-stdlib:${libs.versions.kotlin.get()}")
+
   implementation("org.springframework.boot:spring-boot-starter-web:${libs.versions.springBoot.get()}")
   implementation("org.springframework.boot:spring-boot-starter-security:${libs.versions.springBoot.get()}")
   implementation("org.springframework.boot:spring-boot-starter-actuator:${libs.versions.springBoot.get()}")
