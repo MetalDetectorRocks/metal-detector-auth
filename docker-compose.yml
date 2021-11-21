@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  auth-db:
+    container_name: auth-db-main
+    image: postgres:13.1-alpine
+    environment:
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: metal-detector-auth
+      PGDATA: /var/lib/postgresql/data/db-files/
+    networks:
+      - auth-network
+    ports:
+      - 5434:5432
+    restart: on-failure:3
+
+networks:
+  auth-network:
+    name: auth-network

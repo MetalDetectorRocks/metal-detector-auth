@@ -3,6 +3,36 @@ spring:
     name: Metal Auth Service
   autoconfigure: # prevents spring from showing default user password in logs on startup
     exclude: org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration
+  datasource:
+    username: ${DATASOURCE_USERNAME}
+    password: ${DATASOURCE_PASSWORD}
+    url: ${DATASOURCE_URL}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      minimumIdle: 2
+      maximumPoolSize: 5
+      max-lifetime: 2000000
+      connectionTimeout: 30000
+      idle-timeout: 30000
+  sql:
+    init:
+      platform: postgres
+      mode: always
+  flyway:
+    baseline-on-migrate: true
+    sql-migration-prefix: v
+  jpa:
+    properties:
+      hibernate:
+        # The SQL dialect makes Hibernate generate better SQL for the chosen database
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          time_zone: UTC
+    show-sql: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate # (create, create-drop, validate, update)
+    open-in-view: false
 
 server:
   port: 9000
@@ -23,7 +53,7 @@ management:
     web:
       base-path: /actuator
       exposure:
-        include: health, info, metrics, prometheus
+        include: health, info, metrics, prometheus, flyway
 
 oauth-clients:
   metal-detector-user:

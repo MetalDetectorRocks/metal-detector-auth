@@ -23,7 +23,11 @@ dependencies {
   implementation("org.springframework.boot:spring-boot-starter-web:${libs.versions.springBoot.get()}")
   implementation("org.springframework.boot:spring-boot-starter-security:${libs.versions.springBoot.get()}")
   implementation("org.springframework.boot:spring-boot-starter-actuator:${libs.versions.springBoot.get()}")
+  implementation("org.springframework.boot:spring-boot-starter-data-jpa:${libs.versions.springBoot.get()}")
   implementation("org.springframework.security:spring-security-oauth2-authorization-server:${libs.versions.springSecurityAuthorization.get()}")
+
+  implementation("org.flywaydb:flyway-core:${libs.versions.flyway.get()}")
+  runtimeOnly("org.postgresql:postgresql:${libs.versions.postgresql.get()}")
 
   developmentOnly("org.springframework.boot:spring-boot-devtools:${libs.versions.springBoot.get()}")
   annotationProcessor("org.springframework.boot:spring-boot-configuration-processor:${libs.versions.springBoot.get()}")

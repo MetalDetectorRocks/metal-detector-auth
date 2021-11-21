@@ -15,9 +15,14 @@ import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Import
+import org.springframework.jdbc.core.JdbcOperations
 import org.springframework.security.config.Customizer
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.OAuth2AuthorizationServerConfiguration
+import org.springframework.security.oauth2.server.authorization.JdbcOAuth2AuthorizationService
+import org.springframework.security.oauth2.server.authorization.OAuth2AuthorizationService
+import org.springframework.security.oauth2.server.authorization.client.JdbcRegisteredClientRepository
+import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository
 import org.springframework.security.oauth2.server.authorization.config.ProviderSettings
 import org.springframework.security.web.SecurityFilterChain
 
@@ -50,6 +55,16 @@ class AuthorizationServerConfig {
     return ProviderSettings.builder()
         .issuer(issuerUri)
         .build()
+  }
+
+  @Bean
+  fun registeredClientRepository(jdbcOperations: JdbcOperations): RegisteredClientRepository {
+    return JdbcRegisteredClientRepository(jdbcOperations)
+  }
+
+  @Bean
+  fun oAuth2AuthorizationService(jdbcOperations: JdbcOperations, registeredClientRepository: RegisteredClientRepository): OAuth2AuthorizationService {
+    return JdbcOAuth2AuthorizationService(jdbcOperations, registeredClientRepository)
   }
 
   private fun loadRsa(): RSAKey {
