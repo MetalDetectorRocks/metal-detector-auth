@@ -15,13 +15,15 @@ class ClientsConfig {
 
   @Bean
   fun registeredClientRepository(bCryptPasswordEncoder: BCryptPasswordEncoder, clientConfigurationProperties: ClientConfigurationProperties): RegisteredClientRepository {
-    val clients = clientConfigurationProperties.values.map {
-      RegisteredClient.withId(it.clientId)
-          .clientId(it.clientId)
-          .clientSecret(bCryptPasswordEncoder.encode(it.clientSecret))
+    val clients = clientConfigurationProperties.entries.map {
+      val id = it.key
+      val client = it.value
+      RegisteredClient.withId(id)
+          .clientId(client.clientId)
+          .clientSecret(bCryptPasswordEncoder.encode(client.clientSecret))
           .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
           .authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)
-          .scope(it.scope)
+          .scope(client.scope)
           .build()
     }
     return InMemoryRegisteredClientRepository(clients)
