@@ -1,8 +1,0 @@
-oauth-clients:
-  test-client:
-    client-id: "testId"
-    client-secret: "testSecret"
-    scope: "admin"
-
-security:
-  issuer-uri: "http://localhost:9000"

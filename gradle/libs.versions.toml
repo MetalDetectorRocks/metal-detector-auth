@@ -1,5 +1,6 @@
 [versions]
 flyway = "8.0.4"
+h2 = "1.4.200"
 kotest = "4.6.3"
 kotestSpring = "1.0.1"
 kotlin = "1.6.0"

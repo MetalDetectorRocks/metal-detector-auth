@@ -30,12 +30,6 @@ import org.springframework.security.web.SecurityFilterChain
 @Import(OAuth2AuthorizationServerConfiguration::class)
 class AuthorizationServerConfig {
 
-  @Value("\${security.private-key}")
-  lateinit var privateKey: String
-
-  @Value("\${security.public-key}")
-  lateinit var publicKey: String
-
   @Bean
   @Throws(Exception::class)
   fun authServerSecurityFilterChain(http: HttpSecurity): SecurityFilterChain {
@@ -44,8 +38,9 @@ class AuthorizationServerConfig {
   }
 
   @Bean
-  fun jwkSource(): JWKSource<SecurityContext> {
-    val rsaKey: RSAKey = loadRsa()
+  fun jwkSource(@Value("\${security.private-key}") privateKey: String,
+                @Value("\${security.public-key}") publicKey: String): JWKSource<SecurityContext> {
+    val rsaKey: RSAKey = loadRsa(privateKey, publicKey)
     val jwkSet = JWKSet(rsaKey)
     return JWKSource { jwkSelector, _ -> jwkSelector.select(jwkSet) }
   }
@@ -67,7 +62,7 @@ class AuthorizationServerConfig {
     return JdbcOAuth2AuthorizationService(jdbcOperations, registeredClientRepository)
   }
 
-  private fun loadRsa(): RSAKey {
+  private fun loadRsa(privateKey: String, publicKey: String): RSAKey {
     val keyFactory = KeyFactory.getInstance("RSA")
     val keySpecPKCS8 = PKCS8EncodedKeySpec(Base64.getDecoder().decode(privateKey))
     val privateKey: PrivateKey = keyFactory.generatePrivate(keySpecPKCS8)

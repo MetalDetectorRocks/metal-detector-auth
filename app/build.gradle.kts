@@ -37,6 +37,7 @@ dependencies {
   testImplementation("io.kotest:kotest-property-jvm:${libs.versions.kotest.get()}")
   testImplementation("io.kotest:kotest-runner-junit5-jvm:${libs.versions.kotest.get()}")
   testImplementation("io.kotest.extensions:kotest-extensions-spring:${libs.versions.kotestSpring.get()}")
+  testRuntimeOnly("com.h2database:h2:${libs.versions.h2.get()}")
 }
 
 description = "app"
