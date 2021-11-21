@@ -37,3 +37,5 @@ oauth-clients:
 
 security:
   issuer-uri: "http://localhost:9000"
+  private-key: ${PRIVATE_KEY}
+  public-key: ${PUBLIC_KEY}

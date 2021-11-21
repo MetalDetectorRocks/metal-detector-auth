@@ -4,10 +4,12 @@ import com.nimbusds.jose.jwk.JWKSet
 import com.nimbusds.jose.jwk.RSAKey
 import com.nimbusds.jose.jwk.source.JWKSource
 import com.nimbusds.jose.proc.SecurityContext
-import java.security.KeyPair
-import java.security.KeyPairGenerator
-import java.security.interfaces.RSAPrivateKey
+import java.security.KeyFactory
+import java.security.PrivateKey
 import java.security.interfaces.RSAPublicKey
+import java.security.spec.PKCS8EncodedKeySpec
+import java.security.spec.X509EncodedKeySpec
+import java.util.Base64
 import java.util.UUID
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
@@ -23,6 +25,12 @@ import org.springframework.security.web.SecurityFilterChain
 @Import(OAuth2AuthorizationServerConfiguration::class)
 class AuthorizationServerConfig {
 
+  @Value("\${security.private-key}")
+  lateinit var privateKey: String
+
+  @Value("\${security.public-key}")
+  lateinit var publicKey: String
+
   @Bean
   @Throws(Exception::class)
   fun authServerSecurityFilterChain(http: HttpSecurity): SecurityFilterChain {
@@ -32,7 +40,7 @@ class AuthorizationServerConfig {
 
   @Bean
   fun jwkSource(): JWKSource<SecurityContext> {
-    val rsaKey: RSAKey = generateRsa()
+    val rsaKey: RSAKey = loadRsa()
     val jwkSet = JWKSet(rsaKey)
     return JWKSource { jwkSelector, _ -> jwkSelector.select(jwkSet) }
   }
@@ -44,19 +52,17 @@ class AuthorizationServerConfig {
         .build()
   }
 
-  private fun generateRsa(): RSAKey {
-    val keyPair: KeyPair = generateRsaKey()
-    val publicKey = keyPair.public as RSAPublicKey
-    val privateKey = keyPair.private as RSAPrivateKey
+  private fun loadRsa(): RSAKey {
+    val keyFactory = KeyFactory.getInstance("RSA")
+    val keySpecPKCS8 = PKCS8EncodedKeySpec(Base64.getDecoder().decode(privateKey))
+    val privateKey: PrivateKey = keyFactory.generatePrivate(keySpecPKCS8)
+
+    val keySpecX509 = X509EncodedKeySpec(Base64.getDecoder().decode(publicKey))
+    val publicKey: RSAPublicKey = keyFactory.generatePublic(keySpecX509) as RSAPublicKey
+
     return RSAKey.Builder(publicKey)
         .privateKey(privateKey)
         .keyID(UUID.randomUUID().toString())
         .build()
-  }
-
-  private fun generateRsaKey(): KeyPair {
-    val keyPairGenerator = KeyPairGenerator.getInstance("RSA")
-    keyPairGenerator.initialize(2048)
-    return keyPairGenerator.generateKeyPair()
   }
 }
