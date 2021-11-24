@@ -1,4 +1,5 @@
 ![Continous Integration](https://github.com/MetalDetectorRocks/metal-detector-auth/workflows/Continous%20Integration/badge.svg)
+[![codecov](https://codecov.io/gh/MetalDetectorRocks/metal-detector-auth/branch/master/graph/badge.svg)](https://codecov.io/gh/MetalDetectorRocks/metal-detector-auth)
 ![Docker Image](https://github.com/MetalDetectorRocks/metal-detector-auth/workflows/Docker%20Image/badge.svg)
 
 <a name="introduction"></a>

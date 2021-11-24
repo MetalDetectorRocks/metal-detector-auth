@@ -62,12 +62,12 @@ class AuthorizationServerConfig {
     return JdbcOAuth2AuthorizationService(jdbcOperations, registeredClientRepository)
   }
 
-  private fun loadRsa(privateKey: String, publicKey: String): RSAKey {
+  private fun loadRsa(privateKeyString: String, publicKeyString: String): RSAKey {
     val keyFactory = KeyFactory.getInstance("RSA")
-    val keySpecPKCS8 = PKCS8EncodedKeySpec(Base64.getDecoder().decode(privateKey))
+    val keySpecPKCS8 = PKCS8EncodedKeySpec(Base64.getDecoder().decode(privateKeyString))
     val privateKey: PrivateKey = keyFactory.generatePrivate(keySpecPKCS8)
 
-    val keySpecX509 = X509EncodedKeySpec(Base64.getDecoder().decode(publicKey))
+    val keySpecX509 = X509EncodedKeySpec(Base64.getDecoder().decode(publicKeyString))
     val publicKey: RSAPublicKey = keyFactory.generatePublic(keySpecX509) as RSAPublicKey
 
     return RSAKey.Builder(publicKey)
