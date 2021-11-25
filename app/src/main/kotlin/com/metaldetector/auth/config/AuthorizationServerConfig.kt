@@ -10,7 +10,6 @@ import java.security.interfaces.RSAPublicKey
 import java.security.spec.PKCS8EncodedKeySpec
 import java.security.spec.X509EncodedKeySpec
 import java.util.Base64
-import java.util.UUID
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -72,7 +71,7 @@ class AuthorizationServerConfig {
 
     return RSAKey.Builder(publicKey)
         .privateKey(privateKey)
-        .keyID(UUID.randomUUID().toString())
+        .keyID("metal-detector-auth")
         .build()
   }
 }
