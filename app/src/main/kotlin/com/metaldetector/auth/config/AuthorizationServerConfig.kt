@@ -18,7 +18,6 @@ import org.springframework.jdbc.core.JdbcOperations
 import org.springframework.security.config.Customizer
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.OAuth2AuthorizationServerConfiguration
-import org.springframework.security.oauth2.server.authorization.JdbcOAuth2AuthorizationService
 import org.springframework.security.oauth2.server.authorization.OAuth2AuthorizationService
 import org.springframework.security.oauth2.server.authorization.client.JdbcRegisteredClientRepository
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository
@@ -58,7 +57,7 @@ class AuthorizationServerConfig {
 
   @Bean
   fun oAuth2AuthorizationService(jdbcOperations: JdbcOperations, registeredClientRepository: RegisteredClientRepository): OAuth2AuthorizationService {
-    return JdbcOAuth2AuthorizationService(jdbcOperations, registeredClientRepository)
+    return ExpiredTokenDeletingOAuth2AuthorizationService(jdbcOperations, registeredClientRepository)
   }
 
   private fun loadRsa(privateKeyString: String, publicKeyString: String): RSAKey {

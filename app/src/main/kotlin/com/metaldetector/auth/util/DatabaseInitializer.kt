@@ -1,4 +1,4 @@
-package com.metaldetector.auth
+package com.metaldetector.auth.util
 
 import com.metaldetector.auth.properties.ClientConfigurationProperties
 import org.springframework.beans.factory.annotation.Autowired
