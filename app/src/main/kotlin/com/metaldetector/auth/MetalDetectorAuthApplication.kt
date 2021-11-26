@@ -4,9 +4,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class MetalDetectorAuthApplication {
+class MetalDetectorAuthApplication
 
-  fun main(args: Array<String>) {
-    runApplication<MetalDetectorAuthApplication>(*args)
-  }
+fun main(args: Array<String>) {
+  runApplication<MetalDetectorAuthApplication>(*args)
 }
+
