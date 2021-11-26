@@ -43,7 +43,7 @@
         <appender-ref ref="Console" />
     </logger>
 
-    <!-- LOG "logging.level.org.hibernate.*" at ERROR level -->
+    <!-- LOG "org.hibernate.*" at ERROR level -->
     <logger name="org.hibernate" level="error" additivity="false">
         <appender-ref ref="RollingFile" />
         <appender-ref ref="Console" />
