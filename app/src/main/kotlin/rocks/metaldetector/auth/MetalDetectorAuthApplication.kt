@@ -9,4 +9,3 @@ class MetalDetectorAuthApplication
 fun main(args: Array<String>) {
   runApplication<MetalDetectorAuthApplication>(*args)
 }
-
