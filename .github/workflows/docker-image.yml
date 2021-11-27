@@ -23,7 +23,7 @@ jobs:
           java-version: 17
           cache: 'gradle'
 
-      - name: Build with gradle
+      - name: Execute gradle task 'build'
         run: ./gradlew clean build --no-daemon --info --stacktrace
 
       - name: Set up QEMU
