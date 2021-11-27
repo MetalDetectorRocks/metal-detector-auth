@@ -1,6 +1,5 @@
-package com.metaldetector.auth.util
+package rocks.metaldetector.auth.util
 
-import com.metaldetector.auth.properties.ClientConfigurationProperties
 import org.springframework.boot.ApplicationArguments
 import org.springframework.boot.ApplicationRunner
 import org.springframework.security.oauth2.core.AuthorizationGrantType
@@ -9,6 +8,7 @@ import org.springframework.security.oauth2.server.authorization.client.Registere
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository
 import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.Transactional
+import rocks.metaldetector.auth.properties.ClientConfigurationProperties
 
 @Component
 class DatabaseInitializer(val registeredClientRepository: RegisteredClientRepository,

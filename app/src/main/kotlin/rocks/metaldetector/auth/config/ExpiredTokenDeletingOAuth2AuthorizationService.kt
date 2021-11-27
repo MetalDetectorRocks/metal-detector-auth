@@ -1,10 +1,10 @@
-package com.metaldetector.auth.config
+package rocks.metaldetector.auth.config
 
-import com.metaldetector.auth.util.logger
 import org.springframework.jdbc.core.JdbcOperations
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.security.oauth2.server.authorization.JdbcOAuth2AuthorizationService
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository
+import rocks.metaldetector.auth.util.logger
 
 class ExpiredTokenDeletingOAuth2AuthorizationService(jdbcOperations: JdbcOperations, registeredClientRepository: RegisteredClientRepository)
   : JdbcOAuth2AuthorizationService(jdbcOperations, registeredClientRepository) {

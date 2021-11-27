@@ -1,4 +1,4 @@
-package com.metaldetector.auth.config
+package rocks.metaldetector.auth.config
 
 import org.springframework.context.annotation.Bean
 import org.springframework.security.config.annotation.web.builders.HttpSecurity

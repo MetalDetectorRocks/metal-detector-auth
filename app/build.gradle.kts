@@ -3,7 +3,7 @@ plugins {
 }
 
 springBoot {
-  mainClass.set("rocks.metaldetector.oauthservice.MetalOAuthServiceApplication")
+  mainClass.set("rocks.metaldetector.auth.MetalDetectorAuthApplication")
 }
 
 tasks {

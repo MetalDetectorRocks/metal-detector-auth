@@ -1,4 +1,4 @@
-package com.metaldetector.auth.config
+package rocks.metaldetector.auth.config
 
 import org.springframework.context.annotation.Configuration
 import org.springframework.scheduling.annotation.EnableScheduling

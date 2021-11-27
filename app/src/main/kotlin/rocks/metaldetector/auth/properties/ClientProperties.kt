@@ -1,4 +1,4 @@
-package com.metaldetector.auth.properties
+package rocks.metaldetector.auth.properties
 
 class ClientProperties {
 
