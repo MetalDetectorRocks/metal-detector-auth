@@ -1,11 +1,10 @@
-package com.metaldetector.auth.config
+package rocks.metaldetector.auth.config
 
 import io.kotest.core.spec.style.FunSpec
 import io.mockk.mockk
 import io.mockk.verify
 import org.springframework.jdbc.core.JdbcOperations
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository
-import rocks.metaldetector.auth.config.ExpiredTokenDeletingOAuth2AuthorizationService
 
 class ExpiredTokenDeletingOAuth2AuthorizationServiceTest : FunSpec({
 

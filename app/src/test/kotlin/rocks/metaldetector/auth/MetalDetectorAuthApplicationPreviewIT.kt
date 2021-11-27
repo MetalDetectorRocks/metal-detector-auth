@@ -1,4 +1,4 @@
-package com.metaldetector.auth
+package rocks.metaldetector.auth
 
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
@@ -8,13 +8,13 @@ import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.TestPropertySource
 
 @SpringBootTest
-@ActiveProfiles("default")
+@ActiveProfiles("preview")
 @ContextConfiguration(initializers = [KeyPairInitializer::class])
 @TestPropertySource(locations = ["classpath:integrationtest.properties"])
-class MetalDetectorAuthApplicationDefaultIT : FunSpec() {
+class MetalDetectorAuthApplicationPreviewIT : FunSpec() {
 
   init {
-    test("applicationContext should load on default profile") {
+    test("applicationContext should load on preview profile") {
       true shouldBe true
     }
   }

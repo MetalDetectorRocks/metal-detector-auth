@@ -1,4 +1,4 @@
-package com.metaldetector.auth
+package rocks.metaldetector.auth
 
 import com.nimbusds.jose.util.Base64
 import java.security.KeyPairGenerator

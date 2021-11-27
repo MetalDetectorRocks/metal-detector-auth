@@ -1,4 +1,4 @@
-package com.metaldetector.auth
+package rocks.metaldetector.auth
 
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe

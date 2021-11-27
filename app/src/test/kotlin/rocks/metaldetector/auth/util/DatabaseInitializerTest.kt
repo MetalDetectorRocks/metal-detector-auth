@@ -1,4 +1,4 @@
-package com.metaldetector.auth.util
+package rocks.metaldetector.auth.util
 
 import io.kotest.core.spec.style.FunSpec
 import io.mockk.every
@@ -7,7 +7,6 @@ import io.mockk.verify
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository
 import rocks.metaldetector.auth.properties.ClientConfigurationProperties
 import rocks.metaldetector.auth.properties.ClientProperties
-import rocks.metaldetector.auth.util.DatabaseInitializer
 
 class DatabaseInitializerTest : FunSpec({
 

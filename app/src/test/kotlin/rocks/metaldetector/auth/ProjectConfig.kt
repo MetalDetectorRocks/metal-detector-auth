@@ -1,4 +1,4 @@
-package com.metaldetector.auth
+package rocks.metaldetector.auth
 
 import io.kotest.core.config.AbstractProjectConfig
 import io.kotest.core.extensions.Extension
