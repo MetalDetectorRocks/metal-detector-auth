@@ -6,7 +6,8 @@ import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.security.oauth2.server.authorization.JdbcOAuth2AuthorizationService
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository
 
-class ExpiredTokenDeletingOAuth2AuthorizationService(jdbcOperations: JdbcOperations, registeredClientRepository: RegisteredClientRepository) : JdbcOAuth2AuthorizationService(jdbcOperations, registeredClientRepository) {
+class ExpiredTokenDeletingOAuth2AuthorizationService(jdbcOperations: JdbcOperations, registeredClientRepository: RegisteredClientRepository)
+  : JdbcOAuth2AuthorizationService(jdbcOperations, registeredClientRepository) {
 
   val REMOVE_AUTHORIZATION_SQL = "delete from oauth2_authorization where access_token_expires_at < NOW();"
 

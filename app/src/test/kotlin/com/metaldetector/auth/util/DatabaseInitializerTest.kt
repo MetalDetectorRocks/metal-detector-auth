@@ -28,10 +28,7 @@ class DatabaseInitializerTest : FunSpec({
       this.scope = "admin"
     }
 
-    underTest = DatabaseInitializer().apply {
-      this.registeredClientRepository = registeredClientRepository
-      this.clientConfigurationProperties = clientConfigurationProperties
-    }
+    underTest = DatabaseInitializer(registeredClientRepository, clientConfigurationProperties)
   }
 
   test("should search for every client in clientRepository") {

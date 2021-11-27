@@ -1,7 +1,6 @@
 package com.metaldetector.auth.util
 
 import com.metaldetector.auth.properties.ClientConfigurationProperties
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.ApplicationArguments
 import org.springframework.boot.ApplicationRunner
 import org.springframework.security.oauth2.core.AuthorizationGrantType
@@ -12,13 +11,8 @@ import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.Transactional
 
 @Component
-class DatabaseInitializer : ApplicationRunner {
-
-  @Autowired
-  lateinit var registeredClientRepository: RegisteredClientRepository
-
-  @Autowired
-  lateinit var clientConfigurationProperties: ClientConfigurationProperties
+class DatabaseInitializer(val registeredClientRepository: RegisteredClientRepository,
+                          val clientConfigurationProperties: ClientConfigurationProperties) : ApplicationRunner {
 
   @Transactional
   override fun run(args: ApplicationArguments) {
