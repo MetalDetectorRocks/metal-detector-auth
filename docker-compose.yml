@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   auth-db:
-    container_name: auth-db-main
+    container_name: auth-db
     image: postgres:13.1-alpine
     environment:
       POSTGRES_PASSWORD: secret
@@ -15,7 +15,7 @@ services:
         source: auth-db-volume
         target: /var/lib/postgresql/data
     ports:
-      - 5432:5432
+      - "5432:5432"
     restart: on-failure:3
 
 volumes:
