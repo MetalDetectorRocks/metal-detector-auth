@@ -25,5 +25,10 @@ jobs:
           distribution: 'zulu'
           java-version: 17
           cache: 'gradle'
-      - name: Execute all tests
-        run: ./gradlew clean test --no-daemon --info --stacktrace
+      - name: Execute clean build
+        run: ./gradlew clean build --no-daemon --info --stacktrace
+      - name: Publish Test Report
+        if: ${{ always() }}
+        uses: scacap/action-surefire-report@v1
+        with:
+          report_paths: '**/build/test-results/test/TEST-*.xml'
