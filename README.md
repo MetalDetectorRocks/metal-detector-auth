@@ -58,7 +58,7 @@ via your IDE
 ## 6 Execute tests locally
 
 via gradle
-- Execute command `./gradlew clean test` in root directory
+- Execute command `./gradlew clean check` in root directory
 
 via your IDE
 - Execute the task `test` from folder `verification`

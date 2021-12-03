@@ -8,7 +8,7 @@ server:
       enabled: false
 
 security:
-  issuer-uri: "http://localhost:9000"
+  issuer-uri: "http://metal-detector-auth-preview.herokuapp.com"
 
 management:
   endpoints:
