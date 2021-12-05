@@ -15,8 +15,8 @@ class KeyPairInitializer : ApplicationContextInitializer<ConfigurableApplication
     val base64privateKey = Base64.encode(keyPair.private.encoded)
     val base64publicKey = Base64.encode(keyPair.public.encoded)
     TestPropertyValues.of(
-        "security.private-key=$base64privateKey",
-        "security.public-key=$base64publicKey"
+        "security.authorization-server-private-key=$base64privateKey",
+        "security.authorization-server-public-key=$base64publicKey"
     ).applyTo(applicationContext.environment)
   }
 }

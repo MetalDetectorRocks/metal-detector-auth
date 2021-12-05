@@ -41,8 +41,8 @@ class AuthorizationServerConfig {
   }
 
   @Bean
-  fun jwkSource(@Value("\${security.private-key}") privateKey: String,
-                @Value("\${security.public-key}") publicKey: String): JWKSource<SecurityContext> {
+  fun jwkSource(@Value("\${security.authorization-server-private-key}") privateKey: String,
+                @Value("\${security.authorization-server-public-key}") publicKey: String): JWKSource<SecurityContext> {
     val rsaKey: RSAKey = if (privateKey.isNotBlank() && publicKey.isNotBlank()) {
       loadRsa(privateKey, publicKey)
     }

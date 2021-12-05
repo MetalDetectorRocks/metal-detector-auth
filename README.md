@@ -36,12 +36,12 @@ To start the application locally, the following preparatory actions are necessar
     - `spring.datasource.url` (`jdbc:postgresql://localhost:5432/metal-detector-auth`, the database name must match `POSTGRES_DB` of service `auth-db` from `docker-compose.yml`)
 
 6. Deposit the private key and public key of your generated rsa key pair.
-    - `security.private-key`
-    - `security.public-key`
+    - `security.authorization-server-private-key`
+    - `security.authorization-server-public-key`
 
 It is also possible to define all mentioned connection details and secrets as environment variables. In this case no variables in `application.yml` need to be changed. The names of the environment variables are already in the `application.yml` file. You can define the environment variables for example within a Run Configuration in IntelliJ (other IDEs have similar possibilities).
 
-In local setup it is also possible to simply define empty environment variables with name `PRIVATE_KEY` and `PUBLIC_KEY`. The key pair is then generated automatically when the application is started.
+In local setup it is also possible to simply define empty environment variables with name `AUTHORIZATION_SERVER_PRIVATE_KEY` and `AUTHORIZATION_SERVER_PUBLIC_KEY`. The key pair is then generated automatically when the application is started.
 
 ## 4 Generate Key Pair
 

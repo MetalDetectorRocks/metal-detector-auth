@@ -55,5 +55,5 @@ oauth-clients:
 
 security:
   issuer-uri: "http://localhost:9000"
-  private-key: ${PRIVATE_KEY}
-  public-key: ${PUBLIC_KEY}
+  authorization-server-private-key: ${AUTHORIZATION_SERVER_PRIVATE_KEY}
+  authorization-server-public-key: ${AUTHORIZATION_SERVER_PUBLIC_KEY}
