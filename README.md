@@ -43,9 +43,27 @@ It is also possible to define all mentioned connection details and secrets as en
 
 In local setup it is also possible to simply define empty environment variables with name `AUTHORIZATION_SERVER_PRIVATE_KEY` and `AUTHORIZATION_SERVER_PUBLIC_KEY`. The key pair is then generated automatically when the application is started.
 
-## 4 Generate Key Pair
+## 4 Generate Key Pair manually
 
-🤷‍♂️
+Generate an RSA key pair:
+
+```
+openssl genrsa -out keypair.pem 2048
+```
+
+Extract the public key:
+
+```
+openssl rsa -in keypair.pem -pubout -out public_key.crt
+```
+
+Extract the private key:
+
+```
+openssl pkcs8 -topk8 -inform PEM -outform PEM -nocrypt -in keypair.pem -out private_key.key
+```
+
+From these files the actual keys have to be extracted without the first and last line (the `---` parts) and without the line breaks and put into the corresponding environment variable.
 
 ## 5 Start the application
 
