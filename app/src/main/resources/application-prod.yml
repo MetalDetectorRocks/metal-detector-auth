@@ -8,7 +8,7 @@ server:
       enabled: false
 
 security:
-  issuer-uri: "https://auth.metal-detector.rocks"
+  issuer-uri: "http://auth-app:8080"
 
 management:
   endpoints:
