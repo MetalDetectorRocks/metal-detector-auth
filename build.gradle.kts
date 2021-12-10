@@ -4,7 +4,8 @@ val dependencyVersions: List<String> = listOf(
     "org.objenesis:objenesis:3.2"
 )
 val dependencyGroupVersions: Map<String, String> = mapOf(
-    "io.kotest" to libs.versions.kotest.get()
+    "io.kotest" to libs.versions.kotest.get(),
+    "org.apache.logging.log4j" to "2.15.0"
 )
 
 plugins {
