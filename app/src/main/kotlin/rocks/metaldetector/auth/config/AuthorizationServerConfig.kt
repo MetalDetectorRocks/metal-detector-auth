@@ -16,9 +16,7 @@ import java.util.Base64
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.context.annotation.Import
 import org.springframework.jdbc.core.JdbcOperations
-import org.springframework.security.config.Customizer
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.OAuth2AuthorizationServerConfiguration
 import org.springframework.security.oauth2.server.authorization.OAuth2AuthorizationService
@@ -28,7 +26,6 @@ import org.springframework.security.oauth2.server.authorization.config.ProviderS
 import org.springframework.security.web.SecurityFilterChain
 
 @Configuration
-@Import(OAuth2AuthorizationServerConfiguration::class)
 class AuthorizationServerConfig {
 
   val KEY_ID = "metal-detector-auth"
@@ -37,7 +34,7 @@ class AuthorizationServerConfig {
   @Throws(Exception::class)
   fun authServerSecurityFilterChain(http: HttpSecurity): SecurityFilterChain {
     OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http)
-    return http.formLogin(Customizer.withDefaults()).build()
+    return http.build()
   }
 
   @Bean
