@@ -2,6 +2,7 @@ package rocks.metaldetector.auth.util
 
 import org.springframework.boot.ApplicationArguments
 import org.springframework.boot.ApplicationRunner
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.oauth2.core.AuthorizationGrantType
 import org.springframework.security.oauth2.core.ClientAuthenticationMethod
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClient
@@ -12,7 +13,8 @@ import rocks.metaldetector.auth.properties.ClientConfigurationProperties
 
 @Component
 class DatabaseInitializer(val registeredClientRepository: RegisteredClientRepository,
-                          val clientConfigurationProperties: ClientConfigurationProperties) : ApplicationRunner {
+                          val clientConfigurationProperties: ClientConfigurationProperties, 
+                          val bCryptPasswordEncoder: BCryptPasswordEncoder) : ApplicationRunner {
 
   @Transactional
   override fun run(args: ApplicationArguments) {
@@ -22,7 +24,7 @@ class DatabaseInitializer(val registeredClientRepository: RegisteredClientReposi
       if (registeredClientRepository.findByClientId(clientProperties.clientId) == null) {
         val registeredClient = RegisteredClient.withId(id)
             .clientId(clientProperties.clientId)
-            .clientSecret(clientProperties.clientSecret)
+            .clientSecret(bCryptPasswordEncoder.encode(clientProperties.clientSecret))
             .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
             .authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)
             .scope(clientProperties.scope)
