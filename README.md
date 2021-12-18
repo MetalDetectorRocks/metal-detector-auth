@@ -35,7 +35,9 @@ To start the application locally, the following preparatory actions are necessar
     - `spring.datasource.password` (password from `docker-compose.yml`)
     - `spring.datasource.url` (`jdbc:postgresql://localhost:5432/metal-detector-auth`, the database name must match `POSTGRES_DB` of service `auth-db` from `docker-compose.yml`)
 
-6. Deposit the private key and public key of your generated rsa key pair.
+6. Define the `client-id` and `client-secret` for oauth clients `metal-detector-user` and `metal-detector-admin`. Choose any value you want.
+
+7. Deposit the private key and public key of your generated rsa key pair.
     - `security.authorization-server-private-key`
     - `security.authorization-server-public-key`
 
