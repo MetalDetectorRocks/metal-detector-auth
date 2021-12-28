@@ -54,6 +54,6 @@ oauth-clients:
     scope: "admin"
 
 security:
-  issuer-uri: "http://localhost:9000"
+  issuer-uri: "http://auth-app:9000"
   authorization-server-private-key: ${AUTHORIZATION_SERVER_PRIVATE_KEY}
   authorization-server-public-key: ${AUTHORIZATION_SERVER_PUBLIC_KEY}
