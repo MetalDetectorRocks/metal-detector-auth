@@ -4,5 +4,5 @@ class ClientProperties {
 
   var clientId: String? = null
   var clientSecret: String? = null
-  var scopes: List<String>? = null
+  var scopes: Set<String>? = null
 }
