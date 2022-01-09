@@ -21,13 +21,13 @@ class DatabaseInitializerTest : FunSpec({
     clientConfigurationProperties["userClient"] = ClientProperties().apply {
       this.clientId = "userId"
       this.clientSecret = "userSecret"
-      this.scope = "user"
+      this.scopes = listOf("read")
     }
 
     clientConfigurationProperties["adminClient"] = ClientProperties().apply {
       this.clientId = "adminId"
       this.clientSecret = "adminSecret"
-      this.scope = "admin"
+      this.scopes = listOf("read", "write")
     }
 
     underTest = DatabaseInitializer(registeredClientRepository, clientConfigurationProperties, bcryptPasswordEncoder)

@@ -47,11 +47,16 @@ oauth-clients:
   metal-detector-user:
     client-id: ${METAL_DETECTOR_USER_CLIENT_ID}
     client-secret: ${METAL_DETECTOR_USER_CLIENT_SECRET}
-    scope: "user"
+    scopes:
+      - "releases-read"
   metal-detector-admin:
     client-id: ${METAL_DETECTOR_ADMIN_CLIENT_ID}
     client-secret: ${METAL_DETECTOR_ADMIN_CLIENT_SECRET}
-    scope: "admin"
+    scopes:
+      - "releases-read"
+      - "releases-read-all"
+      - "releases-write"
+      - "import"
 
 security:
   issuer-uri: "http://auth-app:9000"
