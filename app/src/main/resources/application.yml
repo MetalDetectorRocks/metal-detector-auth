@@ -57,6 +57,11 @@ oauth-clients:
       - "releases-read-all"
       - "releases-write"
       - "import"
+  import-job:
+    client-id: ${IMPORT_JOB_CLIENT_ID}
+    client-secret: ${IMPORT_JOB_CLIENT_SECRET}
+    scopes:
+      - "import"
 
 security:
   issuer-uri: "http://auth-app:9000"
