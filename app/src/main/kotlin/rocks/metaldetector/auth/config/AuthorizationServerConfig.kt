@@ -1,8 +1,6 @@
 package rocks.metaldetector.auth.config
 
 import com.nimbusds.jose.jwk.JWKSet
-import com.nimbusds.jose.jwk.KeyOperation.SIGN
-import com.nimbusds.jose.jwk.KeyOperation.VERIFY
 import com.nimbusds.jose.jwk.KeyUse.SIGNATURE
 import com.nimbusds.jose.jwk.RSAKey
 import com.nimbusds.jose.jwk.source.JWKSource
@@ -82,7 +80,6 @@ class AuthorizationServerConfig {
         .privateKey(privateKey)
         .keyID(KEY_ID)
         .keyUse(SIGNATURE)
-        .keyOperations(setOf(SIGN, VERIFY))
         .build()
   }
 
@@ -94,7 +91,6 @@ class AuthorizationServerConfig {
         .privateKey(privateKey)
         .keyID(KEY_ID)
         .keyUse(SIGNATURE)
-        .keyOperations(setOf(SIGN, VERIFY))
         .build()
   }
 
