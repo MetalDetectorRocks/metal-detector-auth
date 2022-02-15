@@ -13,9 +13,7 @@ class SecurityConfig {
   @Throws(Exception::class)
   fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
     http.authorizeRequests { authorizeRequests ->
-      authorizeRequests
-          .antMatchers("/actuator/**").permitAll()
-          .anyRequest().authenticated()
+      authorizeRequests.anyRequest().permitAll()
     }
     return http.build()
   }
