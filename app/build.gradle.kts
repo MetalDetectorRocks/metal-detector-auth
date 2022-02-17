@@ -27,6 +27,7 @@ dependencies {
   implementation("org.springframework.security:spring-security-oauth2-authorization-server:${libs.versions.springSecurityAuthorization.get()}")
 
   implementation("org.flywaydb:flyway-core:${libs.versions.flyway.get()}")
+  implementation("io.micrometer:micrometer-registry-prometheus:${libs.versions.micrometer.get()}")
   runtimeOnly("org.postgresql:postgresql:${libs.versions.postgresql.get()}")
 
   developmentOnly("org.springframework.boot:spring-boot-devtools:${libs.versions.springBoot.get()}")
