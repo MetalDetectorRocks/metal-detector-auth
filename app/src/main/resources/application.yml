@@ -41,7 +41,7 @@ management:
     web:
       base-path: /actuator
       exposure:
-        include: health, info, metrics, prometheus, flyway
+        include: health, info, metrics, prometheus, flyway, beans
 
 oauth-clients:
   metal-detector-user:
