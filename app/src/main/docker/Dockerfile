@@ -1,4 +1,4 @@
-FROM openjdk:17-slim-buster
+FROM eclipse-temurin:17-jre
 
 ENV TZ=Europe/Berlin
 ENV SERVER_PORT 8080
@@ -17,7 +17,6 @@ USER service_user
 EXPOSE $SERVER_PORT
 
 # Arguments
-ARG SOURCE_JAR_FILE="app/build/libs/*.jar"
 ARG BUILD_DATE
 ARG VCS_REF
 
@@ -34,8 +33,8 @@ LABEL org.label-schema.version=$BUILD_DATE
 
 #HEALTHCHECK --start-period=30s --interval=10s --timeout=5s --retries=3 CMD curl --fail http://localhost:8080/actuator/health || exit 1
 
-COPY $SOURCE_JAR_FILE app.jar
+COPY application.jar /app
 COPY docker-entrypoint.sh /app
 
 ENTRYPOINT ["bash", "/app/docker-entrypoint.sh"]
-CMD ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "app.jar"]
+CMD ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "application.jar"]
