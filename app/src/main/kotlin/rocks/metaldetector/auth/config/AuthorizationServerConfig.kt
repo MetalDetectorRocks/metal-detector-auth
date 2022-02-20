@@ -16,6 +16,8 @@ import java.util.Base64
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.core.Ordered.HIGHEST_PRECEDENCE
+import org.springframework.core.annotation.Order
 import org.springframework.jdbc.core.JdbcOperations
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.OAuth2AuthorizationServerConfiguration
@@ -31,6 +33,7 @@ class AuthorizationServerConfig {
   val KEY_ID = "metal-detector-auth"
 
   @Bean
+  @Order(HIGHEST_PRECEDENCE)
   @Throws(Exception::class)
   fun authServerSecurityFilterChain(http: HttpSecurity): SecurityFilterChain {
     OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http)
