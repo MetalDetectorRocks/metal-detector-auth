@@ -6,14 +6,16 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.web.SecurityFilterChain
 
-@EnableWebSecurity(debug = true)
+@EnableWebSecurity
 class SecurityConfig {
 
   @Bean
   @Throws(Exception::class)
   fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
     http.authorizeRequests { authorizeRequests ->
-      authorizeRequests.anyRequest().permitAll()
+      authorizeRequests
+          .antMatchers("/actuator/**").permitAll()
+          .anyRequest().authenticated()
     }
     return http.build()
   }
