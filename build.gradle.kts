@@ -1,7 +1,8 @@
 val javaVersion: JavaVersion = JavaVersion.VERSION_17
 val dependencyVersions: List<String> = listOf(
     "com.nimbusds:nimbus-jose-jwt:9.22",
-    "org.objenesis:objenesis:3.2"
+    "org.objenesis:objenesis:3.2",
+    "com.fasterxml.jackson:jackson-bom:2.13.2.1"
 )
 val dependencyGroupVersions: Map<String, String> = mapOf(
     "io.kotest" to libs.versions.kotest.get(),
@@ -15,7 +16,7 @@ plugins {
   kotlin("plugin.spring") version kotlinVersion apply false
   kotlin("plugin.allopen") version kotlinVersion apply false
 
-  id("org.springframework.boot") version "2.6.6" apply false
+  id("org.springframework.boot") version "2.6.7" apply false
   id("io.spring.dependency-management") version "1.0.11.RELEASE" apply false
   id("de.europace.docker-publish") version "1.3.0" apply false
 }
