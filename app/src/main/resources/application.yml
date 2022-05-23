@@ -3,6 +3,8 @@ spring:
     name: Metal Auth Service
   autoconfigure: # prevents spring from showing default user password in logs on startup
     exclude: org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration
+  lifecycle:
+    timeout-per-shutdown-phase: 60s
   datasource:
     username: ${DATASOURCE_USERNAME}
     password: ${DATASOURCE_PASSWORD}
