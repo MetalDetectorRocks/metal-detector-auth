@@ -8,13 +8,13 @@ import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.TestPropertySource
 
 @SpringBootTest
-@ActiveProfiles("prod")
+@ActiveProfiles("default")
 @ContextConfiguration(initializers = [KeyPairInitializer::class])
 @TestPropertySource(locations = ["classpath:integrationtest.properties"])
-class MetalDetectorAuthApplicationProdIT : FunSpec() {
+class MetalDetectorAuthApplicationDefaultIntegrationTest : FunSpec() {
 
   init {
-    test("applicationContext should load on prod profile") {
+    test("applicationContext should load on default profile") {
       true shouldBe true
     }
   }

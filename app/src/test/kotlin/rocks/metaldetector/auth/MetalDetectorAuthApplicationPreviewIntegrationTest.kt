@@ -11,7 +11,7 @@ import org.springframework.test.context.TestPropertySource
 @ActiveProfiles("preview")
 @ContextConfiguration(initializers = [KeyPairInitializer::class])
 @TestPropertySource(locations = ["classpath:integrationtest.properties"])
-class MetalDetectorAuthApplicationPreviewIT : FunSpec() {
+class MetalDetectorAuthApplicationPreviewIntegrationTest : FunSpec() {
 
   init {
     test("applicationContext should load on preview profile") {
