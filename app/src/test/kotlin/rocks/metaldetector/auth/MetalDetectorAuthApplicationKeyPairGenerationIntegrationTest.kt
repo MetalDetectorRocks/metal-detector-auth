@@ -8,7 +8,7 @@ import org.springframework.test.context.TestPropertySource
 @SpringBootTest
 @TestPropertySource(locations = ["classpath:integrationtest.properties"],
     properties = ["security.authorization-server-private-key=", "security.authorization-server-public-key="])
-class MetalDetectorAuthApplicationKeyPairGenerationIT : FunSpec() {
+class MetalDetectorAuthApplicationKeyPairGenerationIntegrationTest : FunSpec() {
 
   init {
     test("applicationContext should load with generated keypair") {

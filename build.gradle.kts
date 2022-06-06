@@ -1,9 +1,5 @@
 val javaVersion: JavaVersion = JavaVersion.VERSION_17
-val dependencyVersions: List<String> = listOf(
-    "com.nimbusds:nimbus-jose-jwt:9.23",
-    "org.objenesis:objenesis:3.2",
-    "com.fasterxml.jackson:jackson-bom:2.13.3"
-)
+val dependencyVersions: List<String> = listOf()
 val dependencyGroupVersions: Map<String, String> = mapOf(
     "io.kotest" to libs.versions.kotest.get(),
     "org.springframework" to libs.versions.spring.get(),
