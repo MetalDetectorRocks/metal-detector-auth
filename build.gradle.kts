@@ -13,7 +13,7 @@ plugins {
   kotlin("plugin.allopen") version kotlinVersion apply false
 
   id("org.springframework.boot") version "2.7.1" apply false
-  id("io.spring.dependency-management") version "1.0.11.RELEASE" apply false
+  id("io.spring.dependency-management") version "1.0.12.RELEASE" apply false
   id("de.europace.docker-publish") version "1.4.0" apply false
 }
 
