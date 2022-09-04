@@ -32,20 +32,20 @@ tasks {
 dependencies {
   implementation("org.jetbrains.kotlin:kotlin-stdlib:${libs.versions.kotlin.get()}")
 
-  implementation("org.springframework.boot:spring-boot-starter-web:${libs.versions.springBoot.get()}")
-  implementation("org.springframework.boot:spring-boot-starter-security:${libs.versions.springBoot.get()}")
-  implementation("org.springframework.boot:spring-boot-starter-actuator:${libs.versions.springBoot.get()}")
-  implementation("org.springframework.boot:spring-boot-starter-data-jpa:${libs.versions.springBoot.get()}")
+  implementation("org.springframework.boot:spring-boot-starter-web")
+  implementation("org.springframework.boot:spring-boot-starter-security")
+  implementation("org.springframework.boot:spring-boot-starter-actuator")
+  implementation("org.springframework.boot:spring-boot-starter-data-jpa")
   implementation("org.springframework.security:spring-security-oauth2-authorization-server:${libs.versions.springSecurityAuthorization.get()}")
 
   implementation("org.flywaydb:flyway-core:${libs.versions.flyway.get()}")
   implementation("io.micrometer:micrometer-registry-prometheus:${libs.versions.micrometer.get()}")
   runtimeOnly("org.postgresql:postgresql:${libs.versions.postgresql.get()}")
 
-  developmentOnly("org.springframework.boot:spring-boot-devtools:${libs.versions.springBoot.get()}")
-  annotationProcessor("org.springframework.boot:spring-boot-configuration-processor:${libs.versions.springBoot.get()}")
+  developmentOnly("org.springframework.boot:spring-boot-devtools")
+  annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 
-  testImplementation("org.springframework.boot:spring-boot-starter-test:${libs.versions.springBoot.get()}")
+  testImplementation("org.springframework.boot:spring-boot-starter-test")
   testImplementation("io.kotest:kotest-framework-engine-jvm:${libs.versions.kotest.get()}")
   testImplementation("io.kotest:kotest-property-jvm:${libs.versions.kotest.get()}")
   testImplementation("io.kotest:kotest-runner-junit5-jvm:${libs.versions.kotest.get()}")
