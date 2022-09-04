@@ -1,9 +1,11 @@
+import io.spring.gradle.dependencymanagement.dsl.DependencyManagementExtension
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
+
 val javaVersion: JavaVersion = JavaVersion.VERSION_17
 val dependencyVersions: List<String> = listOf()
 val dependencyGroupVersions: Map<String, String> = mapOf(
-    "io.kotest" to libs.versions.kotest.get(),
-    "org.springframework" to libs.versions.spring.get(),
-    "org.springframework.boot" to libs.versions.springBoot.get()
+    "io.kotest" to libs.versions.kotest.get()
 )
 
 plugins {
@@ -23,6 +25,12 @@ subprojects {
   project.apply(plugin = "org.jetbrains.kotlin.plugin.allopen")
   project.apply(plugin = "io.spring.dependency-management")
   project.apply(plugin = "jacoco")
+
+  the<DependencyManagementExtension>().apply {
+    imports {
+      mavenBom(BOM_COORDINATES)
+    }
+  }
 
   repositories {
     mavenCentral()
@@ -50,7 +58,7 @@ subprojects {
   }
 
   tasks {
-    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    withType<KotlinCompile> {
       kotlinOptions {
         jvmTarget = javaVersion.toString()
         freeCompilerArgs = listOf("-Xjsr305=strict", "-Xjvm-default=compatibility")
