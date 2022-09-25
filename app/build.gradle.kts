@@ -38,8 +38,8 @@ dependencies {
   implementation("org.springframework.boot:spring-boot-starter-data-jpa")
   implementation("org.springframework.security:spring-security-oauth2-authorization-server:${libs.versions.springSecurityAuthorization.get()}")
 
-  implementation("org.flywaydb:flyway-core:${libs.versions.flyway.get()}")
-  implementation("io.micrometer:micrometer-registry-prometheus:${libs.versions.micrometer.get()}")
+  implementation("org.flywaydb:flyway-core")
+  implementation("io.micrometer:micrometer-registry-prometheus")
   runtimeOnly("org.postgresql:postgresql:${libs.versions.postgresql.get()}")
 
   developmentOnly("org.springframework.boot:spring-boot-devtools")
@@ -51,7 +51,7 @@ dependencies {
   testImplementation("io.kotest:kotest-runner-junit5-jvm:${libs.versions.kotest.get()}")
   testImplementation("io.kotest.extensions:kotest-extensions-spring:${libs.versions.kotestSpring.get()}")
   testImplementation("io.mockk:mockk:${libs.versions.mockk.get()}")
-  testRuntimeOnly("com.h2database:h2:${libs.versions.h2.get()}")
+  testRuntimeOnly("com.h2database:h2")
 }
 
 description = "app"

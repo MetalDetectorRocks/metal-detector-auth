@@ -3,8 +3,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
 
 val javaVersion: JavaVersion = JavaVersion.VERSION_17
-val dependencyVersions: List<String> = listOf()
-val dependencyGroupVersions: Map<String, String> = mapOf(
+val dependencyVersions = listOf<String>()
+val dependencyGroupVersions = mapOf(
     "io.kotest" to libs.versions.kotest.get()
 )
 
