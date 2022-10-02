@@ -2,6 +2,6 @@
 kotest = "5.4.2"
 kotestSpring = "1.1.2"
 kotlin = "1.7.10"
-mockk = "1.13.1"
+mockk = "1.13.2"
 postgresql = "42.5.0"
 springSecurityAuthorization = "0.3.1"
