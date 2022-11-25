@@ -20,10 +20,10 @@ import org.springframework.core.Ordered.HIGHEST_PRECEDENCE
 import org.springframework.core.annotation.Order
 import org.springframework.jdbc.core.JdbcOperations
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
-import org.springframework.security.config.annotation.web.configuration.OAuth2AuthorizationServerConfiguration
 import org.springframework.security.oauth2.server.authorization.client.JdbcRegisteredClientRepository
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository
-import org.springframework.security.oauth2.server.authorization.config.ProviderSettings
+import org.springframework.security.oauth2.server.authorization.config.annotation.web.configuration.OAuth2AuthorizationServerConfiguration
+import org.springframework.security.oauth2.server.authorization.settings.AuthorizationServerSettings
 import org.springframework.security.web.SecurityFilterChain
 
 @Configuration
@@ -53,8 +53,8 @@ class AuthorizationServerConfig {
   }
 
   @Bean
-  fun providerSettings(@Value("\${security.issuer-uri}") issuerUri: String): ProviderSettings {
-    return ProviderSettings.builder()
+  fun providerSettings(@Value("\${security.issuer-uri}") issuerUri: String): AuthorizationServerSettings {
+    return AuthorizationServerSettings.builder()
         .issuer(issuerUri)
         .build()
   }
