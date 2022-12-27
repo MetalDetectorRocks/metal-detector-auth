@@ -5,7 +5,7 @@ import org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
 val javaVersion: JavaVersion = JavaVersion.VERSION_17
 val dependencyVersions = listOf(
     "org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.6.4",
-    "com.nimbusds:nimbus-jose-jwt:9.25.6"
+    "com.nimbusds:nimbus-jose-jwt:9.26"
 )
 val dependencyGroupVersions = mapOf(
     "io.kotest" to libs.versions.kotest.get()
