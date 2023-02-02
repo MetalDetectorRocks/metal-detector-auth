@@ -13,7 +13,7 @@ val dependencyGroupVersions = mapOf(
 )
 
 plugins {
-  val kotlinVersion = "1.8.0"
+  val kotlinVersion = "1.8.10"
   kotlin("jvm") version kotlinVersion apply false
   kotlin("plugin.spring") version kotlinVersion apply false
   kotlin("plugin.allopen") version kotlinVersion apply false
