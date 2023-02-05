@@ -1,7 +1,7 @@
 [versions]
 kotest = "5.5.4"
 kotestSpring = "1.1.2"
-kotlin = "1.8.0"
+kotlin = "1.8.10"
 mockk = "1.13.3"
-postgresql = "42.5.1"
+postgresql = "42.5.2"
 springSecurityAuthorization = "1.0.0"

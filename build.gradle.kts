@@ -4,8 +4,6 @@ import org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
 
 val javaVersion: JavaVersion = JavaVersion.VERSION_17
 val dependencyVersions = listOf(
-    "org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.6.4",
-    "com.nimbusds:nimbus-jose-jwt:9.30.1",
     "org.objenesis:objenesis:3.3"
 )
 val dependencyGroupVersions = mapOf(
