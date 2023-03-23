@@ -16,7 +16,7 @@ plugins {
   kotlin("plugin.spring") version kotlinVersion apply false
   kotlin("plugin.allopen") version kotlinVersion apply false
 
-  id("org.springframework.boot") version "3.0.3" apply false
+  id("org.springframework.boot") version "3.0.5" apply false
   id("io.spring.dependency-management") version "1.1.0" apply false
   id("de.europace.docker-publish") version "1.4.2" apply false
 }
