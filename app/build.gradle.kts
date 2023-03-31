@@ -40,8 +40,8 @@ dependencies {
 
   implementation("org.flywaydb:flyway-core")
   implementation("io.micrometer:micrometer-registry-prometheus")
-  implementation("com.github.loki4j:loki-logback-appender:${libs.versions.lokiLogbackAppender.get()}")
 
+  runtimeOnly("com.github.loki4j:loki-logback-appender:${libs.versions.lokiLogbackAppender.get()}")
   runtimeOnly("org.postgresql:postgresql:${libs.versions.postgresql.get()}")
 
   developmentOnly("org.springframework.boot:spring-boot-devtools")
