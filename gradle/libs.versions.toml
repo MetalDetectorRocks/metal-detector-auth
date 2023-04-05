@@ -1,8 +1,22 @@
 [versions]
 kotest = "5.5.5"
-kotestSpring = "1.1.2"
+kotestExtensionSpring = "1.1.2"
 kotlin = "1.8.20"
 lokiLogbackAppender = "1.4.0"
 mockk = "1.13.4"
 postgresql = "42.5.4"
-springSecurityAuthorization = "1.0.0"
+springSecurityAuthorizationServer = "1.0.0"
+
+[libraries]
+kotestFrameworkEngineJvm = { module = "io.kotest:kotest-framework-engine-jvm", version.ref = "kotest" }
+kotestPropertyJvm = { module = "io.kotest:kotest-property-jvm", version.ref = "kotest" }
+kotestRunnerJunit5Jvm = { module = "io.kotest:kotest-runner-junit5-jvm", version.ref = "kotest" }
+kotestExtensionSpring = { module = "io.kotest.extensions:kotest-extensions-spring", version.ref = "kotestExtensionSpring" }
+kotlin = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+lokiLogbackAppender = { module = "com.github.loki4j:loki-logback-appender", version.ref = "lokiLogbackAppender" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+postgresql = { module = "org.postgresql:postgresql", version.ref = "postgresql" }
+springSecurityAuthorizationServer = { module = "org.springframework.security:spring-security-oauth2-authorization-server", version.ref = "springSecurityAuthorizationServer" }
+
+[bundles]
+kotest = ["kotestFrameworkEngineJvm", "kotestPropertyJvm", "kotestRunnerJunit5Jvm"]
