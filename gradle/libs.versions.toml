@@ -1,7 +1,7 @@
 [versions]
 kotest = "5.5.5"
 kotestSpring = "1.1.2"
-kotlin = "1.8.10"
+kotlin = "1.8.20"
 lokiLogbackAppender = "1.4.0"
 mockk = "1.13.4"
 postgresql = "42.5.4"
