@@ -4,10 +4,11 @@ import org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
 
 val javaVersion: JavaVersion = JavaVersion.VERSION_17
 val dependencyVersions = listOf(
-    "org.objenesis:objenesis:3.3",
-    "io.kotest:kotest-framework-api:${libs.versions.kotest.get()}"
+    "org.objenesis:objenesis:3.3"
 )
-val dependencyGroupVersions = mapOf<String, String>()
+val dependencyGroupVersions = mapOf(
+    libs.kotestFrameworkEngineJvm.get().group to libs.kotestFrameworkEngineJvm.get().version
+)
 
 plugins {
   val kotlinVersion = "1.8.20"
