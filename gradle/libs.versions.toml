@@ -8,15 +8,27 @@ postgresql = "42.5.4"
 springSecurityAuthorizationServer = "1.0.0"
 
 [libraries]
+flyway = { module = "org.flywaydb:flyway-core" }
+h2 = { module = "com.h2database:h2" }
+kotestExtensionSpring = { module = "io.kotest.extensions:kotest-extensions-spring", version.ref = "kotestExtensionSpring" }
 kotestFrameworkEngineJvm = { module = "io.kotest:kotest-framework-engine-jvm", version.ref = "kotest" }
 kotestPropertyJvm = { module = "io.kotest:kotest-property-jvm", version.ref = "kotest" }
 kotestRunnerJunit5Jvm = { module = "io.kotest:kotest-runner-junit5-jvm", version.ref = "kotest" }
-kotestExtensionSpring = { module = "io.kotest.extensions:kotest-extensions-spring", version.ref = "kotestExtensionSpring" }
 kotlin = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
 lokiLogbackAppender = { module = "com.github.loki4j:loki-logback-appender", version.ref = "lokiLogbackAppender" }
+micrometerRegistryPrometheus = { module = "io.micrometer:micrometer-registry-prometheus" }
 mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
-postgresql = { module = "org.postgresql:postgresql", version.ref = "postgresql" }
+postgres = { module = "org.postgresql:postgresql", version.ref = "postgresql" }
+springBootConfigurationProcessor = { module = "org.springframework.boot:spring-boot-configuration-processor" }
+springBootDevTools = { module = "org.springframework.boot:spring-boot-devtools" }
+springBootStarterActuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
+springBootStarterDataJpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa" }
+springBootStarterSecurity = { module = "org.springframework.boot:spring-boot-starter-security" }
+springBootStarterTest = { module = "org.springframework.boot:spring-boot-starter-test" }
+springBootStarterWeb = { module = "org.springframework.boot:spring-boot-starter-web" }
 springSecurityAuthorizationServer = { module = "org.springframework.security:spring-security-oauth2-authorization-server", version.ref = "springSecurityAuthorizationServer" }
 
 [bundles]
-kotest = ["kotestFrameworkEngineJvm", "kotestPropertyJvm", "kotestRunnerJunit5Jvm"]
+database = ["flyway", "postgres"]
+kotest = ["kotestFrameworkEngineJvm", "kotestPropertyJvm", "kotestRunnerJunit5Jvm", "kotestExtensionSpring"]
+springBootStarter = ["springBootStarterActuator", "springBootStarterDataJpa", "springBootStarterSecurity", "springBootStarterWeb"]
