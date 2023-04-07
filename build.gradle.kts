@@ -26,7 +26,6 @@ subprojects {
   project.apply(plugin = "org.jetbrains.kotlin.plugin.spring")
   project.apply(plugin = "org.jetbrains.kotlin.plugin.allopen")
   project.apply(plugin = "io.spring.dependency-management")
-  project.apply(plugin = "jacoco")
 
   the<DependencyManagementExtension>().apply {
     imports {
@@ -64,12 +63,6 @@ subprojects {
       kotlinOptions {
         jvmTarget = javaVersion.toString()
         freeCompilerArgs = listOf("-Xjsr305=strict", "-Xjvm-default=all-compatibility")
-      }
-    }
-    withType<JacocoReport> {
-      reports {
-        xml.required.set(true)
-        html.required.set(false)
       }
     }
     withType<Test> {
