@@ -5,7 +5,7 @@ kotlin = "1.8.21"
 lokiLogbackAppender = "1.4.0"
 mockk = "1.13.5"
 postgresql = "42.6.0"
-springSecurityAuthorizationServer = "1.0.2"
+springSecurityAuthorizationServer = "1.1.0"
 
 [libraries]
 flyway = { module = "org.flywaydb:flyway-core" }
@@ -38,5 +38,5 @@ dockerPublish = { id = "de.europace.docker-publish", version = "1.4.4" }
 kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlinSpring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
 kotlinAllopen = { id = "org.jetbrains.kotlin.plugin.allopen", version.ref = "kotlin" }
-springBoot = { id = "org.springframework.boot", version = "3.0.7" }
+springBoot = { id = "org.springframework.boot", version = "3.1.0" }
 springDependencyManagement = { id = "io.spring.dependency-management", version = "1.1.0" }
