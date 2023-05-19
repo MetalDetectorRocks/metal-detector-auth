@@ -16,12 +16,10 @@ class SecurityConfig {
   @Throws(Exception::class)
   fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
     return http
-        .csrf().disable()
-        .sessionManagement().sessionCreationPolicy(STATELESS)
-        .and()
-        .authorizeHttpRequests { registry ->
-          registry
-              .requestMatchers("/actuator/**").permitAll()
+        .csrf { it.disable() }
+        .sessionManagement { it.sessionCreationPolicy(STATELESS) }
+        .authorizeHttpRequests {
+          it.requestMatchers("/actuator/**").permitAll()
               .anyRequest().denyAll()
         }
         .build()
