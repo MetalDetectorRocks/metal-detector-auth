@@ -3,9 +3,9 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
 
 val javaVersion: JavaVersion = JavaVersion.VERSION_17
-val dependencyVersions = listOf(
-    "org.objenesis:objenesis:3.3"
-)
+
+val dependencyVersions = listOf<String>()
+
 val dependencyGroupVersions = mapOf(
     libs.kotestFrameworkEngineJvm.get().group to libs.kotestFrameworkEngineJvm.get().version
 )
