@@ -3,7 +3,7 @@ kotest = "5.6.2"
 kotestExtensionSpring = "1.1.3"
 kotlin = "1.9.0"
 lokiLogbackAppender = "1.4.1"
-mockk = "1.13.5"
+mockk = "1.13.7"
 postgresql = "42.6.0"
 springSecurityAuthorizationServer = "1.1.1"
 
