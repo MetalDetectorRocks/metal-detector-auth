@@ -2,14 +2,6 @@ import io.spring.gradle.dependencymanagement.dsl.DependencyManagementExtension
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
 
-buildscript {
-  dependencies {
-    classpath("de.europace.gradle:docker-publish-gradle-plugin:${libs.plugins.dockerPublish.get().version}") {
-      exclude(group = libs.kotlin.get().group)
-    }
-  }
-}
-
 val javaVersion: JavaVersion = JavaVersion.VERSION_17
 
 val dependencyVersions = listOf<String>()
