@@ -61,6 +61,7 @@ oauth-clients:
       - "releases-read-all"
       - "releases-write"
       - "import"
+      - "statistics"
   import-job:
     client-id: ${IMPORT_JOB_CLIENT_ID}
     client-secret: ${IMPORT_JOB_CLIENT_SECRET}
