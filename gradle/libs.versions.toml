@@ -5,7 +5,7 @@ kotlin = "1.9.0"
 lokiLogbackAppender = "1.4.1"
 mockk = "1.13.7"
 postgresql = "42.6.0"
-springSecurityAuthorizationServer = "1.1.1"
+springSecurityAuthorizationServer = "1.1.2"
 
 [libraries]
 flyway = { module = "org.flywaydb:flyway-core" }
