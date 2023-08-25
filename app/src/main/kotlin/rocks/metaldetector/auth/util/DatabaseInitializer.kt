@@ -21,13 +21,13 @@ class DatabaseInitializer(val registeredClientRepository: RegisteredClientReposi
     clientConfigurationProperties.entries.forEach {
       val id = it.key
       val clientProperties = it.value
-      if (registeredClientRepository.findByClientId(clientProperties.clientId) == null) {
+      if (registeredClientRepository.findByClientId(clientProperties.registration.clientId) == null) {
         val clientBuilder = RegisteredClient.withId(id)
-            .clientId(clientProperties.clientId)
-            .clientSecret(bCryptPasswordEncoder.encode(clientProperties.clientSecret))
+            .clientId(clientProperties.registration.clientId)
+            .clientSecret(bCryptPasswordEncoder.encode(clientProperties.registration.clientSecret))
             .clientAuthenticationMethod(CLIENT_SECRET_BASIC)
             .authorizationGrantType(CLIENT_CREDENTIALS)
-        clientProperties.scopes?.forEach { scope ->
+        clientProperties.registration.scopes?.forEach { scope ->
           clientBuilder.scope(scope)
         }
         registeredClientRepository.save(clientBuilder.build())

@@ -23,6 +23,43 @@ spring:
   flyway:
     baseline-on-migrate: true
     sql-migration-prefix: v
+  security:
+    oauth2:
+      authorizationserver:
+        client:
+          metal-detector-admin:
+            registration:
+              client-id: ${METAL_DETECTOR_ADMIN_CLIENT_ID}
+              client-secret: ${METAL_DETECTOR_ADMIN_CLIENT_SECRET}
+              client-authentication-methods:
+                - "client_secret_basic"
+              authorization-grant-types:
+                - "client_credentials"
+              scopes:
+                - "releases-read"
+                - "releases-read-all"
+                - "releases-write"
+                - "import"
+          metal-detector-user:
+            registration:
+              client-id: ${METAL_DETECTOR_ADMIN_CLIENT_ID}
+              client-secret: ${METAL_DETECTOR_ADMIN_CLIENT_SECRET}
+              client-authentication-methods:
+                - "client_secret_basic"
+              authorization-grant-types:
+                - "client_credentials"
+              scopes:
+                - "releases-read"
+          import-job:
+            registration:
+              client-id: ${IMPORT_JOB_CLIENT_ID}
+              client-secret: ${IMPORT_JOB_CLIENT_SECRET}
+              client-authentication-methods:
+                - "client_secret_basic"
+              authorization-grant-types:
+                - "client_credentials"
+              scopes:
+                - "import"
 
 server:
   port: 9000
@@ -46,26 +83,6 @@ management:
       base-path: /actuator
       exposure:
         include: health, info, metrics, prometheus, flyway
-
-oauth-clients:
-  metal-detector-user:
-    client-id: ${METAL_DETECTOR_USER_CLIENT_ID}
-    client-secret: ${METAL_DETECTOR_USER_CLIENT_SECRET}
-    scopes:
-      - "releases-read"
-  metal-detector-admin:
-    client-id: ${METAL_DETECTOR_ADMIN_CLIENT_ID}
-    client-secret: ${METAL_DETECTOR_ADMIN_CLIENT_SECRET}
-    scopes:
-      - "releases-read"
-      - "releases-read-all"
-      - "releases-write"
-      - "import"
-  import-job:
-    client-id: ${IMPORT_JOB_CLIENT_ID}
-    client-secret: ${IMPORT_JOB_CLIENT_SECRET}
-    scopes:
-      - "import"
 
 security:
   issuer-uri: "http://auth-app:9000"
