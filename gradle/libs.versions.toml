@@ -5,7 +5,6 @@ kotlin = "1.9.10"
 lokiLogbackAppender = "1.4.1"
 mockk = "1.13.7"
 postgresql = "42.6.0"
-springSecurityAuthorizationServer = "1.1.1"
 
 [libraries]
 flyway = { module = "org.flywaydb:flyway-core" }
@@ -22,16 +21,16 @@ postgres = { module = "org.postgresql:postgresql", version.ref = "postgresql" }
 springBootConfigurationProcessor = { module = "org.springframework.boot:spring-boot-configuration-processor" }
 springBootDevTools = { module = "org.springframework.boot:spring-boot-devtools" }
 springBootStarterActuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
+springBootStarterAuthorizationServer = { module = "org.springframework.boot:spring-boot-starter-oauth2-authorization-server" }
 springBootStarterDataJpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa" }
 springBootStarterSecurity = { module = "org.springframework.boot:spring-boot-starter-security" }
 springBootStarterTest = { module = "org.springframework.boot:spring-boot-starter-test" }
 springBootStarterWeb = { module = "org.springframework.boot:spring-boot-starter-web" }
-springSecurityAuthorizationServer = { module = "org.springframework.security:spring-security-oauth2-authorization-server", version.ref = "springSecurityAuthorizationServer" }
 
 [bundles]
 database = ["flyway", "postgres"]
 kotest = ["kotestFrameworkEngineJvm", "kotestPropertyJvm", "kotestRunnerJunit5Jvm", "kotestExtensionSpring"]
-springBootStarter = ["springBootStarterActuator", "springBootStarterDataJpa", "springBootStarterSecurity", "springBootStarterWeb"]
+springBootStarter = ["springBootStarterActuator", "springBootStarterDataJpa", "springBootStarterSecurity", "springBootStarterWeb", "springBootStarterAuthorizationServer"]
 
 [plugins]
 dockerPublish = { id = "de.europace.docker-publish", version = "1.4.7" }

@@ -33,8 +33,6 @@ dependencies {
   implementation(libs.kotlin)
 
   implementation(libs.bundles.springBootStarter)
-  implementation(libs.springSecurityAuthorizationServer)
-
   implementation(libs.micrometerRegistryPrometheus)
 
   runtimeOnly(libs.lokiLogbackAppender)
