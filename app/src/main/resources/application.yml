@@ -40,10 +40,11 @@ spring:
                 - "releases-read-all"
                 - "releases-write"
                 - "import"
+                - "statistics"
           metal-detector-user:
             registration:
-              client-id: ${METAL_DETECTOR_ADMIN_CLIENT_ID}
-              client-secret: ${METAL_DETECTOR_ADMIN_CLIENT_SECRET}
+              client-id: ${METAL_DETECTOR_USER_CLIENT_ID}
+              client-secret: ${METAL_DETECTOR_USER_CLIENT_SECRET}
               client-authentication-methods:
                 - "client_secret_basic"
               authorization-grant-types:
