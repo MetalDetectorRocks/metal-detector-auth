@@ -37,5 +37,5 @@ dockerPublish = { id = "de.europace.docker-publish", version = "2.0.2" }
 kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlinSpring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
 kotlinAllopen = { id = "org.jetbrains.kotlin.plugin.allopen", version.ref = "kotlin" }
-springBoot = { id = "org.springframework.boot", version = "3.1.4" }
+springBoot = { id = "org.springframework.boot", version = "3.1.5" }
 springDependencyManagement = { id = "io.spring.dependency-management", version = "1.1.3" }
