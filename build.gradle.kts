@@ -6,6 +6,8 @@ val javaVersion: JavaVersion = JavaVersion.VERSION_17
 
 val dependencyVersions = listOf(
     "com.nimbusds:nimbus-jose-jwt:9.37.1",
+    "org.jetbrains:annotations:24.1.0",
+    "org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.7.3",
     "org.opentest4j:opentest4j:1.3.0"
 )
 
