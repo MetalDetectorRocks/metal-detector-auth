@@ -8,6 +8,7 @@ postgresql = "42.7.3"
 
 [libraries]
 flyway = { module = "org.flywaydb:flyway-core" }
+flywayPostgres = { module = "org.flywaydb:flyway-database-postgresql" }
 h2 = { module = "com.h2database:h2" }
 kotestExtensionSpring = { module = "io.kotest.extensions:kotest-extensions-spring", version.ref = "kotestExtensionSpring" }
 kotestFrameworkEngineJvm = { module = "io.kotest:kotest-framework-engine-jvm", version.ref = "kotest" }
@@ -28,7 +29,7 @@ springBootStarterTest = { module = "org.springframework.boot:spring-boot-starter
 springBootStarterWeb = { module = "org.springframework.boot:spring-boot-starter-web" }
 
 [bundles]
-database = ["flyway", "postgres"]
+database = ["flyway", "flywayPostgres", "postgres"]
 kotest = ["kotestFrameworkEngineJvm", "kotestPropertyJvm", "kotestRunnerJunit5Jvm", "kotestExtensionSpring"]
 springBootStarter = ["springBootStarterActuator", "springBootStarterDataJpa", "springBootStarterSecurity", "springBootStarterWeb", "springBootStarterAuthorizationServer"]
 
