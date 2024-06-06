@@ -1,5 +1,5 @@
 [versions]
-kotest = "5.9.0"
+kotest = "5.9.1"
 kotestExtensionSpring = "1.3.0"
 kotlin = "2.0.0"
 lokiLogbackAppender = "1.5.1"
