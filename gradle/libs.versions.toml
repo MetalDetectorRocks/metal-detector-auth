@@ -34,9 +34,9 @@ kotest = ["kotestFrameworkEngineJvm", "kotestPropertyJvm", "kotestRunnerJunit5Jv
 springBootStarter = ["springBootStarterActuator", "springBootStarterDataJpa", "springBootStarterSecurity", "springBootStarterWeb", "springBootStarterAuthorizationServer"]
 
 [plugins]
-dockerPublish = { id = "de.europace.docker-publish", version = "2.0.8" }
+dockerPublish = { id = "de.europace.docker-publish", version = "2.0.9" }
 kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlinSpring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
 kotlinAllopen = { id = "org.jetbrains.kotlin.plugin.allopen", version.ref = "kotlin" }
 springBoot = { id = "org.springframework.boot", version = "3.3.1" }
-springDependencyManagement = { id = "io.spring.dependency-management", version = "1.1.5" }
+springDependencyManagement = { id = "io.spring.dependency-management", version = "1.1.6" }
