@@ -1,10 +1,10 @@
 [versions]
 kotest = "5.9.1"
 kotestExtensionSpring = "1.3.0"
-kotlin = "2.0.10"
+kotlin = "2.0.20"
 lokiLogbackAppender = "1.5.2"
 mockk = "1.13.12"
-postgresql = "42.7.3"
+postgresql = "42.7.4"
 
 [libraries]
 flyway = { module = "org.flywaydb:flyway-core" }
@@ -38,5 +38,5 @@ dockerPublish = { id = "de.europace.docker-publish", version = "2.0.12" }
 kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlinSpring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
 kotlinAllopen = { id = "org.jetbrains.kotlin.plugin.allopen", version.ref = "kotlin" }
-springBoot = { id = "org.springframework.boot", version = "3.3.2" }
+springBoot = { id = "org.springframework.boot", version = "3.3.3" }
 springDependencyManagement = { id = "io.spring.dependency-management", version = "1.1.6" }
