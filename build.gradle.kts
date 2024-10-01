@@ -5,7 +5,7 @@ import org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
 val javaVersion: JavaVersion = JavaVersion.VERSION_21
 
 val dependencyVersions = listOf(
-    "com.nimbusds:nimbus-jose-jwt:9.41.1",
+    "com.nimbusds:nimbus-jose-jwt:9.41.2",
     "org.jetbrains:annotations:25.0.0",
     "org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.9.0",
     "org.opentest4j:opentest4j:1.3.0"
