@@ -14,15 +14,15 @@ class SecurityConfig {
 
   @Bean
   @Throws(Exception::class)
-  fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
+  fun actuatorSecurityFilterChain(http: HttpSecurity): SecurityFilterChain {
     return http
-        .csrf { it.disable() }
-        .sessionManagement { it.sessionCreationPolicy(STATELESS) }
-        .authorizeHttpRequests {
-          it.requestMatchers("/actuator/**").permitAll()
-              .anyRequest().denyAll()
-        }
-        .build()
+      .csrf { it.disable() }
+      .sessionManagement { it.sessionCreationPolicy(STATELESS) }
+      .securityMatcher("/actuator/**")
+      .authorizeHttpRequests {
+        it.requestMatchers("/**").permitAll()
+      }
+      .build()
   }
 
   @Bean
