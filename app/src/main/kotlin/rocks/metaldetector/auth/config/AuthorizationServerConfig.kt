@@ -18,13 +18,17 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.core.Ordered.HIGHEST_PRECEDENCE
 import org.springframework.core.annotation.Order
+import org.springframework.http.MediaType.TEXT_HTML
 import org.springframework.jdbc.core.JdbcOperations
+import org.springframework.security.config.Customizer
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.oauth2.server.authorization.client.JdbcRegisteredClientRepository
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository
-import org.springframework.security.oauth2.server.authorization.config.annotation.web.configuration.OAuth2AuthorizationServerConfiguration
+import org.springframework.security.oauth2.server.authorization.config.annotation.web.configurers.OAuth2AuthorizationServerConfigurer
 import org.springframework.security.oauth2.server.authorization.settings.AuthorizationServerSettings
 import org.springframework.security.web.SecurityFilterChain
+import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint
+import org.springframework.security.web.util.matcher.MediaTypeRequestMatcher
 
 @Configuration
 class AuthorizationServerConfig {
@@ -34,8 +38,16 @@ class AuthorizationServerConfig {
   @Bean
   @Order(HIGHEST_PRECEDENCE)
   @Throws(Exception::class)
-  fun authServerSecurityFilterChain(http: HttpSecurity): SecurityFilterChain {
-    OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http)
+  fun authorizationServerSecurityFilterChain(http: HttpSecurity): SecurityFilterChain {
+    val authorizationServerConfigurer = OAuth2AuthorizationServerConfigurer.authorizationServer()
+    http
+      .securityMatcher(authorizationServerConfigurer.endpointsMatcher)
+      .with(authorizationServerConfigurer) { authorizationServer ->
+        authorizationServer.oidc(Customizer.withDefaults())
+      }
+      .exceptionHandling { exceptions ->
+        exceptions.defaultAuthenticationEntryPointFor(LoginUrlAuthenticationEntryPoint("/login"), MediaTypeRequestMatcher(TEXT_HTML))
+      }
     return http.build()
   }
 
@@ -55,8 +67,8 @@ class AuthorizationServerConfig {
   @Bean
   fun providerSettings(@Value("\${security.issuer-uri}") issuerUri: String): AuthorizationServerSettings {
     return AuthorizationServerSettings.builder()
-        .issuer(issuerUri)
-        .build()
+      .issuer(issuerUri)
+      .build()
   }
 
   @Bean
@@ -73,9 +85,9 @@ class AuthorizationServerConfig {
     val publicKey: RSAPublicKey = keyFactory.generatePublic(keySpecX509) as RSAPublicKey
 
     return RSAKey.Builder(publicKey)
-        .privateKey(privateKey)
-        .keyID(KEY_ID)
-        .build()
+      .privateKey(privateKey)
+      .keyID(KEY_ID)
+      .build()
   }
 
   private fun generateRsa(): RSAKey {
@@ -83,9 +95,9 @@ class AuthorizationServerConfig {
     val publicKey = keyPair.public as RSAPublicKey
     val privateKey = keyPair.private as RSAPrivateKey
     return RSAKey.Builder(publicKey)
-        .privateKey(privateKey)
-        .keyID(KEY_ID)
-        .build()
+      .privateKey(privateKey)
+      .keyID(KEY_ID)
+      .build()
   }
 
   private fun generateRsaKey(): KeyPair {
