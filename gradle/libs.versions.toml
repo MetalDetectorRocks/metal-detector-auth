@@ -28,6 +28,9 @@ springBootStarterSecurity = { module = "org.springframework.boot:spring-boot-sta
 springBootStarterTest = { module = "org.springframework.boot:spring-boot-starter-test" }
 springBootStarterWeb = { module = "org.springframework.boot:spring-boot-starter-web" }
 
+# for dependency enforcement
+logbackCore = { module = "ch.qos.logback:logback-core", version = "1.5.15" }
+
 [bundles]
 database = ["flyway", "flywayPostgres", "postgres"]
 kotest = ["kotestFrameworkEngineJvm", "kotestPropertyJvm", "kotestRunnerJunit5Jvm", "kotestExtensionSpring"]

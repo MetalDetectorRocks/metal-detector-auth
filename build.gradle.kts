@@ -12,7 +12,8 @@ val dependencyVersions = listOf(
 )
 
 val dependencyGroupVersions = mapOf(
-    libs.kotestFrameworkEngineJvm.get().group to libs.kotestFrameworkEngineJvm.get().version
+    libs.kotestFrameworkEngineJvm.get().group to libs.kotestFrameworkEngineJvm.get().version,
+    libs.logbackCore.get().group to libs.logbackCore.get().version
 )
 
 plugins {
