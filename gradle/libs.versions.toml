@@ -1,7 +1,7 @@
 [versions]
 kotest = "5.9.1"
 kotestExtensionSpring = "1.3.0"
-kotlin = "2.1.10"
+kotlin = "2.1.20"
 lokiLogbackAppender = "1.6.0"
 mockk = "1.13.17"
 postgresql = "42.7.5"
@@ -28,9 +28,6 @@ springBootStarterSecurity = { module = "org.springframework.boot:spring-boot-sta
 springBootStarterTest = { module = "org.springframework.boot:spring-boot-starter-test" }
 springBootStarterWeb = { module = "org.springframework.boot:spring-boot-starter-web" }
 
-# for dependency enforcement
-logbackCore = { module = "ch.qos.logback:logback-core", version = "1.5.17" }
-
 [bundles]
 database = ["flyway", "flywayPostgres", "postgres"]
 kotest = ["kotestFrameworkEngineJvm", "kotestPropertyJvm", "kotestRunnerJunit5Jvm", "kotestExtensionSpring"]
@@ -41,5 +38,5 @@ dockerPublish = { id = "de.europace.docker-publish", version = "2.0.14" }
 kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlinSpring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
 kotlinAllopen = { id = "org.jetbrains.kotlin.plugin.allopen", version.ref = "kotlin" }
-springBoot = { id = "org.springframework.boot", version = "3.4.3" }
+springBoot = { id = "org.springframework.boot", version = "3.4.4" }
 springDependencyManagement = { id = "io.spring.dependency-management", version = "1.1.7" }
