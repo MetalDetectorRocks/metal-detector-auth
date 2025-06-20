@@ -2,7 +2,7 @@
 kotest = "5.9.1"
 kotestExtensionSpring = "1.3.0"
 kotlin = "2.1.21"
-lokiLogbackAppender = "1.6.0"
+lokiLogbackAppender = "2.0.0"
 mockk = "1.14.2"
 postgresql = "42.7.7"
 
@@ -38,5 +38,5 @@ dockerPublish = { id = "de.europace.docker-publish", version = "2.0.15" }
 kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlinSpring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
 kotlinAllopen = { id = "org.jetbrains.kotlin.plugin.allopen", version.ref = "kotlin" }
-springBoot = { id = "org.springframework.boot", version = "3.5.0" }
+springBoot = { id = "org.springframework.boot", version = "3.5.3" }
 springDependencyManagement = { id = "io.spring.dependency-management", version = "1.1.7" }
